@@ -1,6 +1,12 @@
-FROM python:3.0
-COPY . /app
+FROM python:2.7
+
+RUN mkdir /app
 WORKDIR /app
+COPY . /app
+ADD . /app
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["manage.py"]
+
+EXPOSE 5000
+
+CMD ["python","manage.py"]
+
